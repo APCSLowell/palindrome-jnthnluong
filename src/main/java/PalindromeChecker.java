@@ -43,21 +43,12 @@ public boolean palindrome(String word)
   return false;
 }
 public String removeSpecials(String str){
-   String nNew = new String();
 
-  //remove all spaces
-  for(int i = 0; i < str.length(); i ++){
-    if(!str.substring(i,i+1).equals(" ")){
-      nNew = nNew + str.substring(i,i+1);
-    }
-  }
-  //System.out.println("without spaces: " + nNew);
-  
   //remove all symbols by checking if it is a letter
   String aNew = new String();
-  for(int i = 0; i < nNew.length(); i++){
-      char temp = nNew.charAt(i);
-      if(Character.isLetter(temp)) aNew = aNew+nNew.substring(i,i+1);
+  for(int i = 0; i < str.length(); i++){
+      char temp = str.charAt(i);
+      if(Character.isLetter(temp)) aNew = aNew+str.substring(i,i+1);
   }
   //System.out.println(aNew);
   //aNew.toLowerCase(); //doesn't actually conver to lowercase for some reason 
