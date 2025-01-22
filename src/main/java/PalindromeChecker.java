@@ -38,17 +38,44 @@ public void tester()
 public boolean palindrome(String word)
 {
   //your code here
-  if (word.equals(reverse(word))) return true;
+  
+  if(removeSpecials(word).toLowerCase().equals(removeSpecials(reverse(word)).toLowerCase())) return true;
   return false;
+}
+public String removeSpecials(String str){
+   String nNew = new String();
+
+  //remove all spaces
+  for(int i = 0; i < str.length(); i ++){
+    if(!str.substring(i,i+1).equals(" ")){
+      nNew = nNew + str.substring(i,i+1);
+    }
+  }
+  //System.out.println("without spaces: " + nNew);
+  
+  //remove all symbols by checking if it is a letter
+  String aNew = new String();
+  for(int i = 0; i < nNew.length(); i++){
+      char temp = nNew.charAt(i);
+      if(Character.isLetter(temp)) aNew = aNew+nNew.substring(i,i+1);
+  }
+  //System.out.println(aNew);
+  //aNew.toLowerCase(); //doesn't actually conver to lowercase for some reason 
+  //System.out.println("final: " +aNew);
+  return aNew;
 }
 public String reverse(String str)
 {
-     String sNew = new String();
+  String sNew = new String();
   //your code here
   for (int i = str.length()-1; i >= 0; i--) {
     sNew = sNew+str.substring(i, i+1);
   }
-  System.out.println("reversed:" + sNew);
-  return sNew;
+ // System.out.println("reversed:" + sNew);
+  
+
+
+ return sNew;
 }
+
 }
